@@ -76,6 +76,9 @@ export default {
           } else {
             this.mensaje = 'Hubo un error...'
             this.dialog = true
+            setTimeout(() => {
+              this.dialog = false
+            }, 2000)
             // console.log('Entro al error')
           }
           console.log('EXITO')

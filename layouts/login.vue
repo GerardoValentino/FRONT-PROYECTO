@@ -1,12 +1,14 @@
 <template>
-  <v-row class="centrado">
-    <Nuxt /> <!--Aqui se cargan los componentes que se utilicen en este template-->
-  </v-row>
+  <v-app>
+    <v-row class="centrado">
+      <Nuxt /> <!--Aqui se cargan los componentes que se utilicen en este template-->
+    </v-row>
+  </v-app>
 </template>
 
 <script>
 export default {
-  name: 'login'
+  name: 'Login'
 }
 </script>
 
