@@ -20,7 +20,7 @@ export default {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: darkgreen;
+    background-image: url('../images/login-background.jpg');
 }
 
 </style>

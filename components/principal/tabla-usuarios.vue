@@ -2,7 +2,7 @@
   <v-row class="principal" style="margin: 10px; padding: 10px;">
     <v-col cols="12">
       <v-row class="principal">
-        Usuarios del sistema
+        Usuarios Registrados
       </v-row>
       <v-row class="principal">
         <v-data-table
