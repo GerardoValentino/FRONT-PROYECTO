@@ -19,6 +19,7 @@
         <v-data-table
           :headers="headers"
           :items="usuarios"
+          :search="search"
           :items-per-page="5"
           style="width: 100%;"
         >
