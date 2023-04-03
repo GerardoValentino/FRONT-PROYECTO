@@ -1,15 +1,28 @@
 <template>
-  <v-row class="principal" style="margin: 10px; padding: 10px;">
-    <v-col cols="12">
-      <v-row class="principal">
-        Usuarios Registrados
-      </v-row>
-      <v-row class="principal">
+  <v-container>
+    <v-row class="titulo-encabezado">
+      Usuarios Registrados
+    </v-row>
+    <v-row class="buscador">
+      <v-col md="4">
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Buscar Usuarios"
+          single-line
+          hide-details
+        />
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
         <v-data-table
           :headers="headers"
           :items="usuarios"
+          :items-per-page="5"
           style="width: 100%;"
         >
+          <!--Acciones-->
           <template #[`item.acciones`]="{ item }">
             <v-row>
               <v-col cols="6">
@@ -25,11 +38,21 @@
             </v-row>
           </template>
         </v-data-table>
-        <v-btn color="green darkeen-4" @click="dialogAdd = true">
-          Agregar
-        </v-btn>
-      </v-row>
-    </v-col>
+      </v-col>
+    </v-row>
+    <v-row class="boton-agregar">
+      <v-btn
+        v-show="!hidden"
+        color="pink"
+        dark
+        absolute
+        fab
+        @click="dialogAdd = true"
+      >
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+    </v-row>
+    <!--Dialogo para borrar usuario-->
     <v-dialog
       v-model="dialogBorrado"
       max-width="290"
@@ -65,6 +88,8 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+
+    <!--Formulario para actualizar usuario-->
     <v-dialog
       v-model="dialogUpdate"
       max-width="400"
@@ -126,6 +151,7 @@
       </v-card>
     </v-dialog>
 
+    <!--Formulario para agregar usuario-->
     <v-dialog
       v-model="dialogAdd"
       max-width="400"
@@ -185,7 +211,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-  </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -193,6 +219,7 @@
 export default {
   data () {
     return {
+      search: '',
       usuarios: [],
       headers: [
         {
@@ -256,7 +283,7 @@ export default {
         })
     },
     dialogDelete (item) {
-      this.emailBorrar = item.email // Revisar si es _id o id
+      this.emailBorrar = item.email
       this.dialogBorrado = true
     },
     async borrar () {
@@ -338,6 +365,27 @@ export default {
 
 .principal {
     width: 100%;
+}
+
+.boton-agregar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.titulo-encabezado {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-weight: bold;
+  font-size: larger;
+  padding-top: inherit;
+}
+
+.buscador {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 </style>

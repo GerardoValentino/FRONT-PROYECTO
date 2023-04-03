@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card elevatio="5" width="500" color="#C5E1A5">
+    <v-card elevatio="5" width="500" color="white">
       <v-card-title class="text-center">
         Login
       </v-card-title>
@@ -95,6 +95,10 @@ export default {
 <style scoped>
 .colorBtn {
     background-color: #FFD54F !important;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .v-dialog__container {
